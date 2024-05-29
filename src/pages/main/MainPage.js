@@ -4,6 +4,7 @@ import { VideoSize } from "../../styles/main/videoCss";
 import { GrNext } from "react-icons/gr";
 import CreatorSwiper from "../../components/main/CreatorSwiper";
 import ShortTitle from "../../components/main/ShortTitle";
+import GameGo from "../../components/main/GameGo";
 const MainPage = () => {
   const videoRef = useRef(null);
 
@@ -33,9 +34,13 @@ const MainPage = () => {
         </VideoSize>
 
         <div style={{ height: "9rem" }}>ddd</div>
-        <ShortTitle title="넥슨 크리에이터즈 둘러보기" flag={1} />
+        <ShortTitle title="넥슨 크리에이터즈 둘러보기" flag={1} soltFlag={1} />
         <div style={{ height: "3rem" }}></div>
         <CreatorSwiper />
+        <div style={{ height: "12rem" }}></div>
+        <ShortTitle title="게임 바로가기" flag={0} soltFlag={0} />
+        <div style={{ height: "3rem" }} />
+        <GameGo />
       </BasicLayout>
     </>
   );

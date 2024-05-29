@@ -3,7 +3,7 @@ import { GrNext } from "react-icons/gr";
 import styled, { css, keyframes } from "styled-components";
 import { Common } from "../../styles/CommonCss";
 import { IoChevronDown } from "react-icons/io5";
-const ShortTitle = ({ title, flag }) => {
+const ShortTitle = ({ title, flag, soltFlag }) => {
   const [clickBt, setClickBt] = useState(false);
   const [activeItem, setActiveItem] = useState("최신순");
   const rotateOpen = keyframes`
@@ -119,23 +119,31 @@ const ShortTitle = ({ title, flag }) => {
         {flag === 1 && <GrNext style={{ color: Common.color.p300 }} />}
       </ShortTitleCss>
       <div>
-        <DropBt onClick={handleDropBt} active={clickBt}>
-          {activeItem}
-          <IoChevronDown />
-        </DropBt>
-        <DropdownContent show={clickBt}>
-          {["서포터 순", "인기 순", "최신 순", "구독자 순", "오래된 순"].map(
-            item => (
-              <DropdownItem
-                key={item}
-                active={item === activeItem}
-                onClick={() => handleActive(item)}
-              >
-                {item}
-              </DropdownItem>
-            ),
-          )}
-        </DropdownContent>
+        {soltFlag === 1 && (
+          <>
+            <DropBt onClick={handleDropBt} active={clickBt}>
+              {activeItem}
+              <IoChevronDown />
+            </DropBt>
+            <DropdownContent show={clickBt}>
+              {[
+                "서포터 순",
+                "인기 순",
+                "최신 순",
+                "구독자 순",
+                "오래된 순",
+              ].map(item => (
+                <DropdownItem
+                  key={item}
+                  active={item === activeItem}
+                  onClick={() => handleActive(item)}
+                >
+                  {item}
+                </DropdownItem>
+              ))}
+            </DropdownContent>
+          </>
+        )}
       </div>
     </Short>
   );
