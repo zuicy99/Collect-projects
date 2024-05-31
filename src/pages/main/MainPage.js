@@ -5,6 +5,7 @@ import { GrNext } from "react-icons/gr";
 import CreatorSwiper from "../../components/main/CreatorSwiper";
 import ShortTitle from "../../components/main/ShortTitle";
 import GameGo from "../../components/main/GameGo";
+import Campaign from "../../components/main/Campaign";
 const MainPage = () => {
   const videoRef = useRef(null);
 
@@ -32,15 +33,21 @@ const MainPage = () => {
             type="video/mp4"
           />
         </VideoSize>
-
         <div style={{ height: "9rem" }}>ddd</div>
+        {/* ------------------------------------------------------ */}
         <ShortTitle title="넥슨 크리에이터즈 둘러보기" flag={1} soltFlag={1} />
         <div style={{ height: "3rem" }}></div>
         <CreatorSwiper />
         <div style={{ height: "12rem" }}></div>
+        {/* ------------------------------------------------------ */}
         <ShortTitle title="게임 바로가기" flag={0} soltFlag={0} />
         <div style={{ height: "3rem" }} />
         <GameGo />
+        <div style={{ height: "12rem" }} />
+        {/* ------------------------------------------------------ */}
+        <ShortTitle title="크리에이터즈 캠페인" flag={0} soltFlag={0} />
+        <div style={{ height: "3rem" }} />
+        <Campaign />
       </BasicLayout>
     </>
   );
