@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as ReactDOMServer from "react-dom/server";
 import styled from "styled-components";
 import { Common } from "../../styles/CommonCss";
@@ -8,6 +8,7 @@ import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { CampaignWrap } from "../../styles/main/campaignCss";
 import CampaignLeft from "./CampaignLeft";
+import CampaignCard from "./CampaignCard";
 
 const Campaign = () => {
   const CampaignSwiper = styled.div`
@@ -16,17 +17,18 @@ const Campaign = () => {
       width: 89.5rem;
       height: 39.6rem;
     }
+
     .swiper-pagination {
       position: absolute;
       overflow: visible;
-      z-index: 1000;
+      z-index: 1000; /* Increase z-index to ensure visibility */
     }
     .swiper-pagination-bullet {
-      position: relative; /* 절대 위치 설정 */
-      /* left: -50px; */
-      top: -360px; /* 원하는 위치로 이동 */
+      position: relative;
+      /* top: -360px;
       transform: translateY(-50%);
       overflow: visible;
+      z-index: 1001; */
     }
     .swiper-pagination-bullet-active {
       background: none;
@@ -39,6 +41,16 @@ const Campaign = () => {
     }
   `;
 
+  useEffect(() => {
+    const customBullets = document.querySelectorAll(
+      ".custom-pagination-bullet",
+    );
+    customBullets.forEach((bullet, index) => {
+      bullet.addEventListener("click", () => {
+        document.querySelector(".myCamSwiper").swiper.slideTo(index);
+      });
+    });
+  }, []);
   return (
     <>
       <CampaignWrap>
@@ -89,7 +101,9 @@ const Campaign = () => {
                 alt="Campaign Slide 1"
               />
             </SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
+            <SwiperSlide>
+              <CampaignCard />
+            </SwiperSlide>
             <SwiperSlide>Slide 3</SwiperSlide>
             <SwiperSlide>Slide 4</SwiperSlide>
             <SwiperSlide>Slide 5</SwiperSlide>

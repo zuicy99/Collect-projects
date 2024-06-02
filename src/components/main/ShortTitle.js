@@ -32,6 +32,11 @@ const ShortTitle = ({ title, flag, soltFlag }) => {
     setClickBt(false);
   };
 
+  const today = new Date();
+  const formDate = `${today.getFullYear()}- ${
+    today.getMonth() + 1
+  }-${today.getDate()}`;
+
   const Short = styled.div`
     display: flex;
     justify-content: space-between;
@@ -144,9 +149,18 @@ const ShortTitle = ({ title, flag, soltFlag }) => {
             </DropdownContent>
           </>
         )}
+        {soltFlag === 2 && (
+          <>
+            <p style={{ fontSize: "1.6rem", color: Common.color.p300 }}>
+              {formDate} 기준
+            </p>
+          </>
+        )}
       </div>
     </Short>
   );
 };
 
 export default ShortTitle;
+
+//soltflag 0=없음, 1=정렬, 2=날짜

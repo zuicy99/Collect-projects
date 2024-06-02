@@ -3,19 +3,15 @@ import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 
 // import required modules
-import { FreeMode, Navigation, Pagination } from "swiper/modules";
-import styled from "styled-components";
-import { Common } from "../../styles/CommonCss";
-import { FaYoutube } from "react-icons/fa";
+import { Navigation, Pagination } from "swiper/modules";
+import { creatorBoxData } from "../../mock/creatorBoxData";
 import { CreatorWrap } from "../../styles/main/creatorBoxCss";
 import CreatorBox from "./CreatorBox";
-import { creatorBoxData } from "../../mock/creatorBoxData";
 const CreatorSwiper = () => {
   return (
     <div>

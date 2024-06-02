@@ -6,6 +6,7 @@ import CreatorSwiper from "../../components/main/CreatorSwiper";
 import ShortTitle from "../../components/main/ShortTitle";
 import GameGo from "../../components/main/GameGo";
 import Campaign from "../../components/main/Campaign";
+import EventCampaign from "../../components/main/EventCampaign";
 const MainPage = () => {
   const videoRef = useRef(null);
 
@@ -17,6 +18,7 @@ const MainPage = () => {
   const MainStyle = {
     marginRight: "10px",
   };
+
   return (
     <>
       <BasicLayout>
@@ -48,6 +50,11 @@ const MainPage = () => {
         <ShortTitle title="크리에이터즈 캠페인" flag={0} soltFlag={0} />
         <div style={{ height: "3rem" }} />
         <Campaign />
+        <div style={{ height: "12rem" }} />
+        {/* ------------------------------------------------------ */}
+        <ShortTitle title="캠페인 둘러보기" flag={1} soltFlag={2} />
+        <div style={{ height: "3rem" }} />
+        <EventCampaign />
       </BasicLayout>
     </>
   );
