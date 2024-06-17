@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { CampaignWrap } from "../../styles/main/campaignCss";
 import CampaignLeft from "./CampaignLeft";
 import CampaignCard from "./CampaignCard";
+import { campaignData } from "../../mock/campaignData";
 
 const Campaign = () => {
   const CampaignSwiper = styled.div`
@@ -20,8 +21,8 @@ const Campaign = () => {
 
     .swiper-pagination {
       position: absolute;
-      overflow: visible;
-      z-index: 1000; /* Increase z-index to ensure visibility */
+      /* overflow: visible; */
+      /* z-index: 1000; */
     }
     .swiper-pagination-bullet {
       position: relative;
@@ -72,12 +73,11 @@ const Campaign = () => {
               <img title="cash" alt="cash" src="images/PopularCampaign.png" />
               인기 캠페인
             </p>
-            <button>버튼1</button>
           </div>
 
           <Swiper
             slidesPerView={3}
-            spaceBetween={30}
+            spaceBetween={20}
             pagination={{
               clickable: true,
               renderBullet: (index, className) =>
@@ -95,22 +95,11 @@ const Campaign = () => {
             modules={[Pagination]}
             className="myCamSwiper"
           >
-            <SwiperSlide>
-              <img
-                src="https://creators-cdn.nexon.com/creators/campaigns/34F914900E3CD4968BB978C220A3462BB1C8041F4B07F4ACD54A63D07C1E9A03"
-                alt="Campaign Slide 1"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <CampaignCard />
-            </SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
-            <SwiperSlide>Slide 5</SwiperSlide>
-            <SwiperSlide>Slide 6</SwiperSlide>
-            <SwiperSlide>Slide 7</SwiperSlide>
-            <SwiperSlide>Slide 8</SwiperSlide>
-            <SwiperSlide>Slide 9</SwiperSlide>
+            {campaignData.map((campaign, index) => (
+              <SwiperSlide key={index}>
+                <CampaignCard data={campaign} />
+              </SwiperSlide>
+            ))}
           </Swiper>
         </CampaignSwiper>
       </CampaignWrap>

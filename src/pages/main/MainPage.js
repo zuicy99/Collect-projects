@@ -7,6 +7,7 @@ import ShortTitle from "../../components/main/ShortTitle";
 import GameGo from "../../components/main/GameGo";
 import Campaign from "../../components/main/Campaign";
 import EventCampaign from "../../components/main/EventCampaign";
+import { campaignData } from "../../mock/campaignData";
 const MainPage = () => {
   const videoRef = useRef(null);
 
@@ -35,8 +36,9 @@ const MainPage = () => {
             type="video/mp4"
           />
         </VideoSize>
-        <div style={{ height: "9rem" }}>ddd</div>
+
         {/* ------------------------------------------------------ */}
+        <div style={{ height: "12rem" }}></div>
         <ShortTitle title="넥슨 크리에이터즈 둘러보기" flag={1} soltFlag={1} />
         <div style={{ height: "3rem" }}></div>
         <CreatorSwiper />
@@ -52,9 +54,10 @@ const MainPage = () => {
         <Campaign />
         <div style={{ height: "12rem" }} />
         {/* ------------------------------------------------------ */}
-        <ShortTitle title="캠페인 둘러보기" flag={1} soltFlag={2} />
+        {/* <ShortTitle title="캠페인 둘러보기" flag={1} soltFlag={2} /> */}
         <div style={{ height: "3rem" }} />
-        <EventCampaign />
+
+        {/* <EventCampaign data /> */}
       </BasicLayout>
     </>
   );
